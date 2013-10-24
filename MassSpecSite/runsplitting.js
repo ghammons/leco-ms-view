@@ -1,0 +1,2 @@
+require('./splitting.js');
+ 
