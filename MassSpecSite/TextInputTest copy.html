@@ -1,0 +1,74 @@
+<html<!-- text input appears in blue below the textbox -->
+<head>
+		<title> Jquery Input </title> 
+		<script src = "http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="splitting.js" type="text/javascript" defer></script>
+		
+<script> <!-- needs to go in separate file -->
+$( "input" )
+  .keyup(function() { //makes the inputed text appear below in blue
+    var value = $( this ).val();
+    $( "p" ).text( value );
+  })
+  .keyup();
+  
+  
+$( ":button" ).click(function() { //makes the text box disappear
+  $(":text" ).click();
+  $(":text").slideUp();
+  
+}); 
+  
+</script>
+
+<style type ="text/css">
+
+body {
+width:750px;
+margin:0 auto;
+margin-top:30px;
+}
+
+#header {
+width:750px;
+height:50px;
+background-color:#333333;
+font-size: 45px;
+color: #fff;
+}
+
+#extraSpace{
+height: 65px;
+}
+
+ p {
+    color: blue;
+    margin: 8px;
+  }
+  
+</style>
+</head>
+
+<body>
+<div id = "header">
+<center> Title of Site Would Go Here</center>
+</div>
+
+<div id="extraSpace"></div>
+
+<div>
+<center>
+<input type="text" value="" size="100" id = "massSpec"/> <!--creates a text input box -->
+<button  id = "graph" > Graph </button> <!-- when clicked, function should run to save user input -->
+<p></p>
+</center>
+</div>
+
+<script>
+
+</script>
+ 
+
+</body>
+</html>

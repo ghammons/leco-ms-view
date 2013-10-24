@@ -1,0 +1,18 @@
+/* style sheet for website dealing with mass specs */
+body {
+width:750px;
+margin:0 auto;
+margin-top:30px;
+}
+
+#header {
+width:750px;
+height:50px;
+background-color:#333333;
+font-size: 45px;
+color: #fff;
+}
+
+#extraSpace{
+height: 65px;
+}

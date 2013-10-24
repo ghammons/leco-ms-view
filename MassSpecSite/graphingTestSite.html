@@ -1,0 +1,28 @@
+<html>
+
+<head>
+	<script src = "graphTesting.js" type = "text/javascript" defer></script>
+	<script src = "http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	
+	<script src = "http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>
+	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<div id="volume-month-chart">
+    <!-- Title or anything you want to add above the chart -->
+    <span>Does this work?</span>
+    <!--
+        if a link with css class "reset" is present then the chart
+        will automatically turn it on/off based on whether there is filter
+        set on this chart (slice selection for pie chart and brush
+        selection for bar chart)
+     -->
+    <a class="reset" href="javascript:gainOrLossChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+    <!--
+        dc.js will also automatically inject applied current filter value into
+        any html element with css class set to "filter"
+    -->
+    <span class="reset" style="display: none;">Current filter: <span class="filter"></span></span>
+</div>
+</body>
+</html>
