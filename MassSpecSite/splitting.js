@@ -1,13 +1,13 @@
+var jquery = require ('jquery');
 
 
-
-$('#massSpec').keyup(function() {
+jquery('#massSpec').keyup(function() {
 
 	var textValue = this.value;
 
 //console.log('my value is ' + textValue);
 
-	$("#output").text(textValue);
+	jquery("#output").text(textValue);
 	
 	
 	var apart = textValue.split(" ");
