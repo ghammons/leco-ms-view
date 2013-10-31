@@ -32,5 +32,5 @@ jquery('#massSpec').keyup(function() {
     console.log(mass2);
     console.log(intensity3);
     
-    
+  
 });
