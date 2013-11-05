@@ -1,11 +1,13 @@
 /* style sheet for website dealing with mass specs */
 body {
-width:750px;
+width:1750px;
 margin:0 auto;
 margin-top:30px;
 }
 
 #header {
+margin-left: auto;
+margin-right: auto;
 width:750px;
 height:50px;
 background-color:#333333;
@@ -17,6 +19,14 @@ color: #fff;
 height: 65px;
 }
 
+#output{
+margin-left: auto;
+margin-right: auto;
+padding: 10px;
+}
+
 #bar-example{
-max-width: 1000px;
+margin: 10px;
+width: 1500px; 
+height: 500px;
 }

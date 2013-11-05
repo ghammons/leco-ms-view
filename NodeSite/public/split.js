@@ -40,50 +40,40 @@ $('#massSpec').keyup(function() {
         e = e.split(":");
         ion.push(+e[0]);
         
-        console.log(e[0] + ' = ' + e[1]);
+        // console.log(e[0] + ' = ' + e[1]);
         
         return +e[1];
     });
-    
-    
-
+   
 });
 
 $('#graph').click(function() {
 
-$(document).ready(function() {
+	$(document).ready(function() {
 
-	for(j = 0; j < intensity.length; j ++){
-    	mapped = { y: ion[j], a: intensity[j] };
-    	
-    
-      	mappedArray.push(mapped);
-      	//console.log(mappedArray);
-	}
-
-	Morris.Bar({
-	  element: 'bar-example',
-	  data: mappedArray,
-	  xkey: 'y',
-	  ykeys: ['a'],
-	  labels: ['Intensity'],
-	  axes: [
-	  	{
-	  		type: 'Numeric',
-	  		position : 'left',
-	  		fields: ['ions'],
-	  		grid: true,
-	  		minimum: 0,
-	  		maximum: 800
-	  	},
-	  	{
-	  		type: 'Category',
-	  		position: 'bottom',
-	  		fields: ['intensity']
-	  	}
-	  ],
-	});
-});	
-
+		Array.max = function( intensity ){
+    		return Math.max.apply( Math, intensity );
+		};
+		
+		var max = Array.max(intensity)
+	
+		console.log(max) 
+	
+		for(j = 0; j < intensity.length; j ++){
+	    	mapped = [ion[j], (intensity[j]/max) *100];
+	    
+	        mappedArray.push(mapped);
+		}
+	
+		$.plot($("#bar-example"), [
+	    	{
+		        data: mappedArray,
+		        bars: {
+	            	show: true
+        		}
+    		}
+		]);
+		
+	});	
   
 });
