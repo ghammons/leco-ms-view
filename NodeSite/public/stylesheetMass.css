@@ -16,7 +16,7 @@ color: #fff;
 }
 
 #extraSpace{
-height: 65px;
+height: 25px;
 }
 
 #output{
@@ -27,6 +27,6 @@ padding: 10px;
 
 #bar-example{
 margin: 10px;
-width: 1500px; 
+width: 94%; 
 height: 500px;
 }

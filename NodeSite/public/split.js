@@ -23,6 +23,7 @@ $('#massSpec').keyup(function() {
 			
 			var var1 = (apart[k].split(":"))[0];
 			var var2 = (apart[k+1].split(":"))[0];
+			
 			if(parseInt(var1) > parseInt(var2))
 			{
 				var temp;
@@ -38,9 +39,16 @@ $('#massSpec').keyup(function() {
 	ion = [],
     intensity = apart.map(function(e) {
         e = e.split(":");
+     /*   
+        if(e[1] == undefined) {
+        	console.log("found"); 
+        	ion.push(+e[1]); 
+        	return +e[2];
+        }
+       */ 
         ion.push(+e[0]);
         
-        // console.log(e[0] + ' = ' + e[1]);
+        console.log(e[0] + ' = ' + e[1]);
         
         return +e[1];
     });
@@ -50,7 +58,7 @@ $('#massSpec').keyup(function() {
 $('#graph').click(function() {
 
 	$(document).ready(function() {
-
+	
 		Array.max = function( intensity ){
     		return Math.max.apply( Math, intensity );
 		};
@@ -59,20 +67,29 @@ $('#graph').click(function() {
 	
 		console.log(max) 
 	
-		for(j = 0; j < intensity.length; j ++){
+		for(j = 0; j < intensity.length; j++){
 	    	mapped = [ion[j], (intensity[j]/max) *100];
 	    
 	        mappedArray.push(mapped);
+		}
+	
+		var options = {
+			xaxis: { min: 0, max: 500, tickSize: 25 },
+			yaxis: { min: 0, max: 110, tickSize: 10 },
+			grid: { hoverable: true }
 		}
 	
 		$.plot($("#bar-example"), [
 	    	{
 		        data: mappedArray,
 		        bars: {
-	            	show: true
+	            	show: true,
+	            	labelLoc: "center"
         		}
-    		}
-		]);
+        	}
+        ],	
+        options
+		);
 		
 	});	
   
