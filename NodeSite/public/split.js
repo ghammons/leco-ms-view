@@ -3,7 +3,7 @@ var intensity;//y value on graph
 var apart;//user input split ion and intensity pairs
 var mappedArray = [];//datapoints put into an array
 
-$('#massSpec').keyup(function() {//splits user input and sorts it from lowest value to highest value
+$('#massSpec').keyup(function() { //splits apart user input and sorts it from lowest value to highest value
 
 	var textValue = this.value;
 	
@@ -57,14 +57,14 @@ $('#graph').click(function() {//on button click, shows graph
 	    
 	        mappedArray.push(mapped);
 		}
-	//setting bounds for graph
+	//setting parameters for graph
 		var options = {
 			xaxis: { min: 0, max: 500, tickSize: 25 },
 			yaxis: { min: 0, max: 110, tickSize: 10 },
 			grid: { hoverable: true }
 		}
 	
-		$.plot($("#bar-example"), [//giving input to graph and ploting input
+		$.plot($("#bar-example"), [ //giving input to graph and ploting input
 	    	{
 		        data: mappedArray,
 		        bars: {
@@ -75,7 +75,7 @@ $('#graph').click(function() {//on button click, shows graph
         options
 		);
 
-		function showTooltip(x, y, contents) {//creates the box that appears when the mouse hovers over a bar of the graph
+		function showTooltip(x, y, contents) { //creates the box that appears when the mouse hovers over a bar of the graph
       		$('<div id="tooltip">' + contents + '</div>').css({
           		position: 'absolute',
           		display: 'none',
@@ -88,22 +88,49 @@ $('#graph').click(function() {//on button click, shows graph
       		}).appendTo("body").fadeIn(200);
   		}
   
-  		$("#bar-example").bind("plothover", function (event, pos, item) {//gives data to the hover box, which is then displayed
+  		$("#bar-example").bind("plothover", function (event, pos, item) { //gives data to the hover box, which is then displayed
       		$("#tooltip").remove();
       		if (item) {
           		var x = item.datapoint[0].toFixed(0);
           		showTooltip(item.pageX, item.pageY, x);
       		}
   		});
-  		
-  		
-  		
-  			//get 20 highest intensities and the matching ions
-			//for(var j = 0; j <
-  		
-  		
-  		
-  		
+
+  	//get 20 highest intensities and the matching ions
+
+  	//bubble sort for intensity(highest to lowest value)
+  	for(i = 0; i < apart.length - 1; i++)
+	{
+		for(k = 0; k < apart.length - i - 1; k++)
+		{
+			
+			var var1 = (apart[k].split(":"))[1];
+			var var2 = (apart[k+1].split(":"))[1];
+			
+			if(parseInt(var1) < parseInt(var2))
+			{
+				var temp;
+				temp = apart[k];
+				apart[k] = apart[k+1];
+				apart[k+1] = temp;
+			}
+				
+		}
+	}
+	
+	//splits the array 'apart' into two arrays based in the first number and last number in a number set (#:#)
+	//these values are to be used in the table below; they are ordered differently than the ones used for the graph
+	ion2 = [],
+    intensity2 = apart.map(function(e) {
+        e = e.split(":");
+      
+        ion2.push(+e[0]);
+        
+        return +e[1];
+    });
+
+
+		//sets up the parameteres for the table to show ion/intensities
 		  var grid;
 		  var columns = [
 		  	{ id: "title", name: "Ions", field: "ions" },
@@ -112,20 +139,20 @@ $('#graph').click(function() {//on button click, shows graph
 		  
 		  var options = {
 		    enableCellNavigation: true,
-		    enableColumnReorder: false
+		    enableColumnReorder: false,
+		    forceFitColumns:true
 		  };
 		
 	   	$(function () {
-	   	var data = [];
-	   	for (var i = 0; i < 20; i++) {
-	     	data[i] = {
-		       	title: i,
-		       	ions: ion[i],
-				intensity: intensity[i]
+	   		var data = [];
+	   		for (var i = 0; i < 20; i++) {
+	     		data[i] = {
+		       		title: i,
+		       		ions: ion2[i],
+					intensity: intensity2[i]
 				};
 	      	}
-		
-		  grid = new Slick.Grid("#myGrid", data, columns, options);
+		  grid = new Slick.Grid("#myGrid", data, columns, options); //renders the table
 		})
 	});
 });
