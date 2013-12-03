@@ -1,0 +1,55 @@
+<html> <!--working version -->
+<head>
+		<title> leco-ms-view</title> 
+		
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		
+		<script src="split.js" type="text/javascript" defer></script>
+		<link rel="stylesheet" type="text/css" href="stylesheetMass.css"/>
+		
+		<script src="SlickGrid-master/lib/jquery.event.drag-2.2.js" type="text/javascript"></script>
+		<script src="SlickGrid-master/slick.core.js" type="text/javascript"></script>
+		<script src="SlickGrid-master/slick.grid.js" type="text/javascript"></script>
+		
+		<link rel="stylesheet" href="SlickGrid-master/slick.grid.css" type="text/css"/>
+		<link rel="stylesheet" href="SlickGrid-master/css/smoothness/jquery-ui-1.8.16.custom.css" type="text/css"/>
+		
+		<script language="javascript" type="text/javascript" src="flot/jquery.flot.min.js"></script>
+		<script language="javascript" type="text/javascript" src="flot/jquery.flot.pie.min.js"></script>
+
+</head>
+
+<body>
+<div id = "header">
+<center> Graph of Mass Spectrometry Data Points</center>
+</div>
+
+<div id="extraSpace">
+
+</div>
+
+<div>
+<center>
+<p>Input Data Points and press the button (be careful not to leave a trailing space) </p>
+
+<input type="text" value="" size="100" id = "massSpec"/> <!--creates a text input box -->
+<button id = "graph" > Graph</button>
+<p> Look at the table below to see the 20 largest intenisties and corresponding ions <p>
+<p> Use the mouse to hover over a bar in the graph to see the ion number<p>
+
+</center> 
+</div>
+<table width="100%">
+  <tr>
+    <td valign="top" width="100%">
+      <div id="myGrid"></div>
+    </td>
+  </tr>
+</table>
+<div id="bar-example"></div>
+
+
+
+</body>
+</html>
