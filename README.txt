@@ -1,8 +1,8 @@
 Deployment
 ==========
 - needs node.js and npm
-- # git clone https://code.google.com/p/leco-ms-view/
-//- # npm install git+https://code.google.com/p/leco-ms-view/.git
+- $ npm install git+https://code.google.com/p/leco-ms-view.git
+- $ npm install forever
 
 Running
 ==========
