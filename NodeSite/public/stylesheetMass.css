@@ -19,14 +19,16 @@ color: #fff;
 height: 25px;
 }
 
-
 #bar-example{
 margin: 10px;
-width: 94%; 
+width: 75%; 
 height: 500px;
+position: relative;
+top: -530px;
+left: 320px;
 }
 
 #myGrid{
-width: 200px;
-height: 550;
+width: 300px;
+height: 550px;
 }

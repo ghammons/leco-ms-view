@@ -33,9 +33,7 @@ $('#massSpec').keyup(function() { //splits apart user input and sorts it from lo
 	ion = [],
     intensity = apart.map(function(e) {
         e = e.split(":");
-      
         ion.push(+e[0]);
-        
         return +e[1];
     });
    
@@ -51,7 +49,7 @@ $('#graph').click(function() {//on button click, shows graph
 		
 		var max = Array.max(intensity)
 		var mapped;//data points
-
+		
 		for(j = 0; j < intensity.length; j++){//divides all intensity values by the maximum value to create a percentage scale
 	    	mapped = [ion[j], (intensity[j]/max) *100];
 	    
@@ -103,7 +101,6 @@ $('#graph').click(function() {//on button click, shows graph
 	{
 		for(k = 0; k < apart.length - i - 1; k++)
 		{
-			
 			var var1 = (apart[k].split(":"))[1];
 			var var2 = (apart[k+1].split(":"))[1];
 			
@@ -114,7 +111,6 @@ $('#graph').click(function() {//on button click, shows graph
 				apart[k] = apart[k+1];
 				apart[k+1] = temp;
 			}
-				
 		}
 	}
 	
@@ -123,18 +119,16 @@ $('#graph').click(function() {//on button click, shows graph
 	ion2 = [],
     intensity2 = apart.map(function(e) {
         e = e.split(":");
-      
         ion2.push(+e[0]);
-        
         return +e[1];
     });
-
 
 		//sets up the parameteres for the table to show ion/intensities
 		  var grid;
 		  var columns = [
 		  	{ id: "title", name: "Ions", field: "ions" },
-		  	{ id: "title2", name: "Intensity", field: "intensity" }
+		  	{ id: "title2", name: "Intensity", field: "intensity" },
+		  	{ id: "title3", name: "Percent", field: "maxs"}
 		  ];
 		  
 		  var options = {
@@ -149,7 +143,8 @@ $('#graph').click(function() {//on button click, shows graph
 	     		data[i] = {
 		       		title: i,
 		       		ions: ion2[i],
-					intensity: intensity2[i]
+					intensity: intensity2[i],
+					maxs: ((intensity2[i] / max )*100)
 				};
 	      	}
 		  grid = new Slick.Grid("#myGrid", data, columns, options); //renders the table
