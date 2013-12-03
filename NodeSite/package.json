@@ -1,6 +1,6 @@
 {
-	"name": "demo1",
-	"description": "First Express app",
+	"name": "leco-ms-view",
+	"description": "Graphs Mass Spectrometry data",
 	"version": "0.0.1",
 	"dependencies": {
 		"express":"3.x"
